@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Styles/stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="Scripts/script.js" defer></script>
+</head>
+<body style="display: flex; flex-direction: row;">
+    <div id="menuWrapper">
+        <div class="menuDiv">
+            <button class="menuButton" style="width: 3rem;" onclick="toggleMenu()">
+                <i id="navBarToggle" class="menuItem fa fa-navicon"></i>
+                <input id="navBarToggleValue" type="hidden" value="0">
+            </button>
+        </div>
+        <div class="menuDiv">
+            <a class="menuButton" href="">
+                <div style="display: flex; padding: 10px;">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <p class="menuButtonText hidden">Startpagina</p>
+                </div>
+            </a>
+            <a class="menuButton" href='Pages/Ervaringen/index.html'>
+                <div style="display: flex; padding: 10px;">
+                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                    <p class="menuButtonText hidden">Ervaringen</p>
+                </div>
+            </a>
+            <a class="menuButton" href='Pages/Contact/'>
+                <div style="display: flex; padding: 10px;">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <p class="menuButtonText hidden">Contact</p>
+                </div>
+            </a>       
+        </div>
+    </div>
+    <div id="pageWrapper">
+        <h1>Portfolio</h1>
+    </div>
+</body>
+</html>
