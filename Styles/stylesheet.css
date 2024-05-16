@@ -3,6 +3,16 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+a:hover {
+    color: slategrey;
+    transition: 0.5s;
+}
 #menuWrapper {
     /* background-color: rgb(22, 22, 97); */
     background-color: black;
@@ -108,15 +118,40 @@ h1 {
 
 table {
     /* border: 1px solid black; */
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 100%;
+    /* border: 1px solid; */
     border-radius: 10px;
-    background-color: rgb(245, 245, 245);
+    border-collapse: collapse;
+    box-shadow: 0 0 0 .5px rgba(0,0,0,.15),0 2px 3px rgba(0,0,0,.2);
+    /* box-shadow: var(--elevation-lined)!important; */
+    background-color: rgb(255, 255, 255);
+
 }
 
 thead {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+th {
+    border-radius: 10px;
+    /* overflow: hidden; */
+}
+
+td, th {
+    margin: 0;
+    padding: 10px;
+    /* border: 0; */
+}
+
+.evenTableItem {
+    background-color: rgb(245, 245, 245);
 }
 
 .footerWrapper {
