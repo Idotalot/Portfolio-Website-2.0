@@ -1,9 +1,3 @@
-.formContainer {
-    border-radius: 10px;
-    box-shadow: 0 0 0 .5px rgba(0,0,0,.15),0 2px 3px rgba(0,0,0,.2);
-    padding: 20px;
-}
-
 .formItem {
     display: flex;
     flex-direction: column;
@@ -28,10 +22,27 @@
     background-color: black;
     padding: 10px;
     color: white;
-
+    width: 100%;
 }
 
 textarea {
     resize: none;
     height: 300px;
+}
+
+.formContainer {
+    border-radius: 10px;
+    padding: 20px;
+}
+
+@media only screen and (min-width: 601px) {
+    .formContainer {
+        box-shadow: 0 0 0 .5px rgba(0,0,0,.15),0 2px 3px rgba(0,0,0,.2);
+    }
+
+    .formButton {
+        width: fit-content;
+        margin-left: auto;
+        
+    }
 }

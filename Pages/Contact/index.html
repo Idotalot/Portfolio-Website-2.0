@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../Styles/form.css">
     <script src="../../Scripts/script.js" defer></script>
 </head>
-<body style="display: flex; flex-direction: row;">
+<body>
     <div id="menuWrapper">
         <div class="menuDiv">
             <button class="menuButton" style="width: 3rem;" onclick="toggleMenu()">
@@ -17,7 +17,7 @@
                 <input id="navBarToggleValue" type="hidden" value="0">
             </button>
         </div>
-        <div class="menuDiv">
+        <div class="menuDiv menuList hidden">
             <a class="menuButton" href="../../index.html">
                 <div style="display: flex; padding: 12px;">
                     <i class="fa fa-home" aria-hidden="true"></i>
@@ -50,19 +50,19 @@
                     <p style="margin-bottom: 20px;">
                         Ik ben erg gedreven en sta altijd klaar voor nieuwe uitdagingen. momenteel ben ik aan het afstuderen voor de opleiding <strong>MBO 4 Software Development</strong> en zal ik in het vervolg HBO Informatica gaan studeren.
                     </p> -->
-                    <p style="margin-bottom: 20px;">
+                    <p style="margin-top: 20px; margin-bottom: 20px;">
                         Heeft u vragen of wilt u meer informatie? Neem dan contact op. Dit kan per mail via het onderstaande formulier.
                     </p>
                     <div class="formContainer">
                         <form action="https://formspree.io/f/mwkgzywk" method="POST">
                             <div class="formItem">
                                 <label>Uw emailadres:</label>
-                                <input type="email" name="email">
+                                <input type="email" name="email" required>
                             </div>
                             
                             <div class="formItem">
                                 <label>Uw bericht:</label>
-                                <textarea name="message"></textarea>
+                                <textarea name="message" required></textarea>
                             </div>
                             
                             <!-- your other form fields go here -->

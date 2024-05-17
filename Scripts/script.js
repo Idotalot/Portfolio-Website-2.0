@@ -1,6 +1,17 @@
+menuVisible = false
+
 function toggleMenu() {
     buttonText = document.querySelectorAll(".menuButtonText");
     navBarToggle = document.getElementById("navBarToggle");
+    
+    let menuList = document.querySelector(".menuList")
+    console.log(menuList);
+    
+    if (menuList.classList.contains("hidden")) {
+        menuList.classList.remove("hidden")
+    } else {
+        menuList.classList.add("hidden")
+    }
 
     buttonText.forEach(text => {
         if (text.classList.contains("hidden")) {
