@@ -5,7 +5,7 @@
 }
 
 .formItem > input, .formItem > textarea {
-    background-color: aliceblue;
+    background-color: white;
     box-shadow: 0 0 0 .5px rgba(0,0,0,.15),0 2px 1px rgba(0,0,0,.2);
     border: none;
     border-radius: 5px;
@@ -44,5 +44,9 @@ textarea {
         width: fit-content;
         margin-left: auto;
         
+    }
+
+    .formItem > input, .formItem > textarea { 
+        background-color: aliceblue;
     }
 }
