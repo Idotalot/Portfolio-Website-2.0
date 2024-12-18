@@ -1,0 +1,10 @@
+{
+  "name": "Portfolio Website 2.0",
+  "version": "1.0.0",
+  "scripts": {
+    "tailwind-watch": "npx tailwindcss -i ./Styles/tailwindInput.css -o ./Styles/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
