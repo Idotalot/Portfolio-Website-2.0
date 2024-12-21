@@ -1,7 +1,7 @@
 <?php
-
 include "dbConnect.php";
 
+// DATA DEFINITION & HANDLING (IF SENT ONLY)
 $data = null;
 
 if(json_decode(file_get_contents('php://input'), true) != null) {
@@ -9,7 +9,8 @@ if(json_decode(file_get_contents('php://input'), true) != null) {
   
   switch ($data["type"]) {
     case 'UPDATE':
-      updateAboutMe($data, $conn);
+      echo $data["page"];
+      updateInfoBlock($conn, $data);
       break;
     
     default:
@@ -18,31 +19,32 @@ if(json_decode(file_get_contents('php://input'), true) != null) {
   }
 }
 
+// SQL READ
+function readAboutMe($conn, $webpage) {
+  $sql = "SELECT * FROM AboutMe WHERE `Page` = '$webpage'";
+  $result = $conn->query($sql);
 
-
-function readAboutMe($conn) {
-        $sql = "SELECT * FROM AboutMe";
-        $result = $conn->query($sql);
-
-        if (mysqli_num_rows($result) > 0) {
-            // output data of each row
-            while($row = mysqli_fetch_assoc($result)) {
-              return $row["Text"];
-            }
-          } else {
-            echo "0 results";
-          }
+  if (mysqli_num_rows($result) > 0) {
+      // output data of each row
+      while($row = mysqli_fetch_assoc($result)) {
+        return $row["Text"];
+      }
+    } else {
+      echo "0 results";
+    }
 }
 
-function updateAboutMe($data, $conn) {
+// SQL UPDATE
+function updateInfoBlock($conn, $data) {
+  $webpage = $data["page"];
   $value = $data["value"];
-
+  
   try {
-      $sql = 'UPDATE AboutMe SET `Text` = ? WHERE id = 1'; 
+      $sql = 'UPDATE AboutMe SET `Text` = ? WHERE page = ?'; 
 
       // Prepared statement
       $stmt = $conn->prepare($sql);
-      $stmt->bind_param('s', $value);
+      $stmt->bind_param('ss', $value, $webpage);
 
       // Execute the statement
       if ($stmt->execute()) {

@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php
+        include "../../Includes/header.php";
+    ?>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>i.Dot - Ervaringen </title>
-    <link rel="stylesheet" href="../../Styles/stylesheet.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../Styles/tailwind.css">
-    <script src="../../Scripts/script.js" defer></script>
 </head>
 <body>
     <?php
@@ -15,14 +12,24 @@
     ?>
     <div id="pageWrapper">
         <?php
-            include "../../Includes/header.php";
+            // include "../../Includes/header.php";
+            headerDisplay();
         ?>
         <div class="pageFormat">
             <div class="contentWrapper">
                 <div class="content">
-                    <p style="margin-top: 20px; margin-bottom: 20px;">
-                        Momenteel loop ik eindstage bij Politie Nederland. Ik heb nog geen baan op vakgebied maar sta open voor mogelijkheden. Mocht u interesse hebben, neem dan <a href="../Contact/"><strong>contact</strong></a> met me op.
-                    </p>
+                    <?php
+                        include "../../Includes/dbConnect.php";
+                        include "../../Includes/infoBlocks.php";
+
+                        echo '<div onclick=editAboutMe() class="contentInformation">
+                                <button onclick="editAboutMe(this)" class="text-left w-full h-full">
+                                    <textarea oninput="autoGrow(this)" onblur="updateInfo(\''.$pageName.'\', this)" class="w-full py-0.5 resize-none px-3.5 focus:border-none focus:rounded-lg focus:py-0.5 focus:px-3.5 focus:bg-[aliceblue] hover:py-0 hover:border-solid hover:border-2 hover:border-zinc-950 hover:px-3 hover:rounded-lg">' .
+                                        readAboutMe($conn, $pageName) .
+                                    '</textarea>
+                                </button>                                
+                            </div>';
+                    ?>
                     <h3>
                         Mijn ervaringen
                     </h3>

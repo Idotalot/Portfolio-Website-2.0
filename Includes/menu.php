@@ -18,11 +18,26 @@
                 <p class="menuButtonText hidden">Ervaringen</p>
             </div>
         </a>
+        <a class="menuButton" href="../Projecten">
+            <div style="display: flex; padding: 12px;">
+                <i class="fa fa-folder" aria-hidden="true"></i>
+                <p class="menuButtonText hidden">Projecten</p>
+            </div>
+        </a>  
         <a class="menuButton" href="../Contact">
             <div style="display: flex; padding: 12px;">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <p class="menuButtonText hidden">Contact</p>
             </div>
-        </a>       
+        </a>
+    </div>
+    <div class="menuDiv menuList hidden absolute bottom-0">
+        <a class="menuButton" href="../Login">
+            <div class="flex p-3">
+            <!-- <div style="display: flex; padding: 12px;"> -->
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                <p class="menuButtonText hidden">Bezoeker</p>
+            </div>
+        </a>
     </div>
 </div>
