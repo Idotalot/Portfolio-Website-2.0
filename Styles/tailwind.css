@@ -583,10 +583,6 @@ video {
   margin-right: auto;
 }
 
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-
 .mt-4 {
   margin-top: 1rem;
 }
@@ -595,16 +591,12 @@ video {
   margin-top: 1.25rem;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
-.mb-7 {
-  margin-bottom: 1.75rem;
-}
-
-.mb-8 {
-  margin-bottom: 2rem;
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .flex {
@@ -619,16 +611,20 @@ video {
   display: none;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-28 {
+  height: 7rem;
+}
+
 .h-full {
   height: 100%;
 }
 
-.h-4 {
-  height: 1rem;
-}
-
-.w-32 {
-  width: 8rem;
+.w-28 {
+  width: 7rem;
 }
 
 .w-72 {
@@ -642,10 +638,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-28 {
-  width: 7rem;
 }
 
 .transform {
@@ -664,12 +656,12 @@ video {
   flex-direction: column;
 }
 
-.gap-2 {
-  gap: 0.5rem;
+.items-end {
+  align-items: flex-end;
 }
 
-.rounded-2xl {
-  border-radius: 1rem;
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .rounded-md {
@@ -680,8 +672,17 @@ video {
   border-radius: 0.125rem;
 }
 
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
 .border-2 {
   border-width: 2px;
+}
+
+.border-sky-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(3 105 161 / var(--tw-border-opacity, 1));
 }
 
 .border-stone-400 {
@@ -689,9 +690,9 @@ video {
   border-color: rgb(168 162 158 / var(--tw-border-opacity, 1));
 }
 
-.border-stone-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(87 83 78 / var(--tw-border-opacity, 1));
+.bg-green-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity, 1));
 }
 
 .bg-sky-700 {
@@ -702,6 +703,16 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-green-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(134 239 172 / var(--tw-bg-opacity, 1));
+}
+
+.bg-green-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity, 1));
 }
 
 .p-10 {
@@ -716,13 +727,14 @@ video {
   padding: 0.75rem;
 }
 
-.p-4 {
-  padding: 1rem;
-}
-
 .px-3\.5 {
   padding-left: 0.875rem;
   padding-right: 0.875rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .py-0\.5 {
@@ -760,6 +772,18 @@ video {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.hover\:h-36:hover {
+  height: 9rem;
+}
+
+.hover\:w-36:hover {
+  width: 9rem;
 }
 
 .hover\:rounded-lg:hover {

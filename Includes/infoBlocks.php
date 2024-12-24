@@ -58,4 +58,13 @@ function updateInfoBlock($conn, $data) {
       echo "Error: " . $e->getMessage();
   }
 }
+
+function displayInfoBlock($conn, $pageName) {
+  echo '
+    <div class="contentInformation">
+      <textarea oninput="autoGrow(this)" onblur="updateInfo(\''.$pageName.'\', this)" class="w-full py-0.5 resize-none px-3.5 rounded-lg transition duration-300 focus:border-none focus:py-0.5 focus:px-3.5 focus:bg-[aliceblue] hover:py-0 hover:border-solid hover:border-2 hover:border-zinc-950 hover:px-3 hover:rounded-lg">' .
+        readAboutMe($conn, $pageName) .
+      '</textarea>                     
+    </div>';
+}
 ?>

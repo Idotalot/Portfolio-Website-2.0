@@ -4,12 +4,11 @@ function autoGrow(element) {
 }
 
 let aboutMeBlock = document.querySelector(".contentInformation").querySelector("textarea");
-let currentText = aboutMeBlock.innerHTML;
+let currentText = aboutMeBlock.value;
+console.log(currentText)
 
 function updateInfo(webpage, element) {
-    console.log(element)
-    let updatedText = element.value
-    console.log(updatedText.length);
+    let updatedText = element.value;
 
     if (currentText != updatedText) {
         fetch('../../Includes/infoBlocks.php', {
@@ -32,7 +31,11 @@ function updateInfo(webpage, element) {
                 return response.text();
             })
         .then((data) => {
-            alert(data);
+            // alert(data);
+            aboutMeBlock.classList.add("bg-green-400")
+            setTimeout(() => {
+                aboutMeBlock.classList.remove("bg-green-400")
+            }, 500);
         })
         .catch((error) => {
             console.error('Error updating record:', error);
@@ -40,6 +43,8 @@ function updateInfo(webpage, element) {
     } else {
         console.log("No changes made")
     }
+
+    currentText = aboutMeBlock.value;
 }
 
 autoGrow(aboutMeBlock)

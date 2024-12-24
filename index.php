@@ -24,7 +24,7 @@
             header("Location: Pages/Login");
         }
     } else {
-        echo "noggers";
+        header("Location: Pages/Login");
     }
 
     
