@@ -16,13 +16,23 @@ function toggleMenu() {
         navbarToggleValue = 0;
     }
 
-    buttonText.forEach(text => {
+    if (navBarToggle.classList.contains("rotateY180")) {
+        navBarToggle.classList.remove("rotateY180");
+    } else {
+        navBarToggle.classList.add("rotateY180");
+    }
+
+    buttonText.forEach(text => {        
         if (text.classList.contains("hidden")) {
             text.classList.remove("hidden")
-            navBarToggle.classList.replace("fa-navicon", "fa-remove")
+            setTimeout(() => {
+                navBarToggle.classList.replace("fa-navicon", "fa-remove")
+            }, 100);
         } else {
             text.classList.add("hidden")
-            navBarToggle.classList.replace("fa-remove", "fa-navicon")
+            setTimeout(() => {
+                navBarToggle.classList.replace("fa-remove", "fa-navicon")
+            }, 150);
         }
     });
 
@@ -31,7 +41,7 @@ function toggleMenu() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
             name: "menuToggle", 
-            value: navbarToggleValue 
+            value: navbarToggleValue
         }),
     })
     .then((response) => {

@@ -59,7 +59,7 @@ function generateText() {
     loginButton.removeAttribute("onclick");
 
     const texts = [
-        "Was het nog niet duidelijk dat deze pagina fake is?", 
+        "Was het nog niet duidelijk dat deze pagina nep is?", 
         "Nahh dit werkt niet man.", 
         "Wat dacht je nou?", 
         "Hier bereik je echt niks mee.", 

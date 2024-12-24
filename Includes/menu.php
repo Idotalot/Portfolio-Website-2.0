@@ -14,7 +14,7 @@
     <div id="menuWrapper">
         <div class="menuDiv">
             <button class="menuButton" style="width: 3rem;" onclick="toggleMenu()">
-                <i id="navBarToggle" class="menuItem fa '.$icon.'"></i>
+                <i id="navBarToggle" class="transition-all duration-300 menuItem fa '.$icon.'"></i>
                 <input id="navBarToggleValue" type="hidden" value="'.$_SESSION["menuToggle"].'">
             </button>
         </div>
@@ -41,6 +41,12 @@
                 <div style="display: flex; padding: 12px;">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
                     <p class="menuButtonText '.$hidden.'">Contact</p>
+                </div>
+            </a>
+            <a class="menuButton" href="../Easter Eggs">
+                <div class="text-yellow-400" style="display: flex; padding: 12px;">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <p class="menuButtonText '.$hidden.'">Easter Eggs</p>
                 </div>
             </a>
         </div>

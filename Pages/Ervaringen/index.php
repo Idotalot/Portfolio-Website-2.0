@@ -26,13 +26,6 @@
                         include "../../Includes/infoBlocks.php";
 
                         displayInfoBlock($conn, $pageName);
-                        // echo '<div onclick=editAboutMe() class="contentInformation">
-                        //         <button onclick="editAboutMe(this)" class="text-left w-full h-full">
-                        //             <textarea oninput="autoGrow(this)" onblur="updateInfo(\''.$pageName.'\', this)" class="w-full py-0.5 resize-none px-3.5 focus:border-none focus:rounded-lg focus:py-0.5 focus:px-3.5 focus:bg-[aliceblue] hover:py-0 hover:border-solid hover:border-2 hover:border-zinc-950 hover:px-3 hover:rounded-lg">' .
-                        //                 readAboutMe($conn, $pageName) .
-                        //             '</textarea>
-                        //         </button>                                
-                        //     </div>';
                     ?>
                     <h3>
                         Mijn ervaringen

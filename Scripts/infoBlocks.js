@@ -3,8 +3,8 @@ function autoGrow(element) {
     element.style.height = (element.scrollHeight) + "px";
 }
 
-let aboutMeBlock = document.querySelector(".contentInformation").querySelector("textarea");
-let currentText = aboutMeBlock.value;
+let infoBlock = document.querySelector(".contentInformation").querySelector("textarea");
+let currentText = infoBlock.value;
 console.log(currentText)
 
 function updateInfo(webpage, element) {
@@ -31,11 +31,19 @@ function updateInfo(webpage, element) {
                 return response.text();
             })
         .then((data) => {
-            // alert(data);
-            aboutMeBlock.classList.add("bg-green-400")
+            let styleClass = null;
+            let result = JSON.parse(data).response.result;
+
+            if (result == true) {
+                styleClass = "bg-green-400";
+            } else {
+                styleClass = "bg-red-500";
+            }
+
+            infoBlock.classList.add(styleClass);
             setTimeout(() => {
-                aboutMeBlock.classList.remove("bg-green-400")
-            }, 500);
+                infoBlock.classList.remove(styleClass);
+            }, 500);            
         })
         .catch((error) => {
             console.error('Error updating record:', error);
@@ -44,7 +52,7 @@ function updateInfo(webpage, element) {
         console.log("No changes made")
     }
 
-    currentText = aboutMeBlock.value;
+    currentText = infoBlock.value;
 }
 
-autoGrow(aboutMeBlock)
+autoGrow(infoBlock)

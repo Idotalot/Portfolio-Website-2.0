@@ -9,7 +9,6 @@ if(json_decode(file_get_contents('php://input'), true) != null) {
   
   switch ($data["type"]) {
     case 'UPDATE':
-      echo $data["page"];
       updateInfoBlock($conn, $data);
       break;
     
@@ -21,7 +20,7 @@ if(json_decode(file_get_contents('php://input'), true) != null) {
 
 // SQL READ
 function readAboutMe($conn, $webpage) {
-  $sql = "SELECT * FROM AboutMe WHERE `Page` = '$webpage'";
+  $sql = "SELECT * FROM InfoBlocks WHERE `Page` = '$webpage'";
   $result = $conn->query($sql);
 
   if (mysqli_num_rows($result) > 0) {
@@ -40,7 +39,7 @@ function updateInfoBlock($conn, $data) {
   $value = $data["value"];
   
   try {
-      $sql = 'UPDATE AboutMe SET `Text` = ? WHERE page = ?'; 
+      $sql = 'UPDATE InfoBlocks SET `Text` = ? WHERE page = ?'; 
 
       // Prepared statement
       $stmt = $conn->prepare($sql);
@@ -48,14 +47,40 @@ function updateInfoBlock($conn, $data) {
 
       // Execute the statement
       if ($stmt->execute()) {
-          echo "Record updated successfully";
+          $rowsAffected = $stmt->affected_rows;
+          if ($rowsAffected == 0) {
+            $result = false;
+            $message = "Geen gegevens geüpdate";
+          } else {
+            $result = true;
+            $message = $rowsAffected . " geüpdate";
+          }
+          // echo "Record updated successfully";
       } else {
-          echo "Error updating record: " . $stmt->error;
+          $message = "Error updating record: " . $stmt->error;
       }
+
+      $response = [
+        "response" => [
+          "result" => $result,
+          "message" => $message
+        ],            
+      ];
+
+      $response = json_encode($response);
+      echo $response;
 
       $stmt->close();  
   } catch (Exception $e) {
-      echo "Error: " . $e->getMessage();
+    $response = [
+      "response" => [
+        "result" => false,
+        "message" => "Error: " . $e->getMessage()
+      ],            
+    ];
+
+    $response = json_encode($response);
+    echo $response;
   }
 }
 

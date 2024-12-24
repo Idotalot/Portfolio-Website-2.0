@@ -69,7 +69,4 @@
         transition: all 1.2s ease-out; */
         transform: rotateY(180deg);
     }
-    .reversedImage {
-        /* transform: rotateY(180deg); */
-    }
 </style>
