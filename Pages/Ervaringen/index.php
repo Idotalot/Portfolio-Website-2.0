@@ -1,5 +1,6 @@
 <?php
     include "../../Includes/sessions.php";
+    include "../../Includes/userAccess.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

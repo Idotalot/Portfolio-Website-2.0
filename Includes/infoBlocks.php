@@ -85,11 +85,31 @@ function updateInfoBlock($conn, $data) {
 }
 
 function displayInfoBlock($conn, $pageName) {
-  echo '
-    <div class="contentInformation">
-      <textarea oninput="autoGrow(this)" onblur="updateInfo(\''.$pageName.'\', this)" class="w-full py-0.5 resize-none px-3.5 rounded-lg transition duration-300 focus:border-none focus:py-0.5 focus:px-3.5 focus:bg-[aliceblue] hover:py-0 hover:border-solid hover:border-2 hover:border-zinc-950 hover:px-3 hover:rounded-lg">' .
+  $codeEntry = $_SESSION["codeEntry"];
+  $loggedIn = $_SESSION["loggedIn"];
+
+  if ($codeEntry["access"] == true) {
+    echo '
+      <div class="contentInformation">
+        <textarea readonly class="w-full py-0.5 resize-none px-3.5 rounded-lg">' .
         readAboutMe($conn, $pageName) .
-      '</textarea>                     
-    </div>';
+      '</textarea>
+      </div>
+      <style>
+        textarea:focus {
+          outline: none;
+          border: none;
+        }
+      </style>';
+  } else if ($loggedIn == true) {
+    echo '
+      <div class="contentInformation">
+        <textarea oninput="autoGrow(this)" onblur="updateInfo(\''.$pageName.'\', this)" class="w-full py-0.5 resize-none px-3.5 rounded-lg transition duration-300 focus:border-none focus:py-0.5 focus:px-3.5 focus:bg-[aliceblue] hover:py-0 hover:border-solid hover:border-2 hover:border-zinc-950 hover:px-3 hover:rounded-lg">' .
+          readAboutMe($conn, $pageName) .
+        '</textarea>
+      </div>';
+  }
+
+  
 }
 ?>

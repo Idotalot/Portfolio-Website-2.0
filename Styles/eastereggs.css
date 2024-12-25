@@ -1,0 +1,7 @@
+.badge {
+    transition: all 1.2s ease-in-out;
+    border-radius: 50%;
+}
+.badgeTag {
+    font-family: "Source Code Pro", serif;
+}

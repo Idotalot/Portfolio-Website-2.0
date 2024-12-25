@@ -3,11 +3,14 @@ session_start();
 
 // Handle POST requests to update session state
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $data = json_decode(file_get_contents('php://input'), true);
+    $rawData = file_get_contents('php://input');
+    $data = json_decode($rawData, true);
 
     if (!empty($data["name"]) && isset($data["value"])) {
-        $_SESSION[$data["name"]] = intval($data["value"]); // Ensure value is integer
-        echo $_SESSION[$data["name"]]; // Return updated value to client
+        $_SESSION[$data["name"]] = $data["value"];
+
+        // Debug: Updated session state
+        echo "Updated Session: " . print_r($_SESSION, true) . PHP_EOL;
     } else {
         http_response_code(400); // Bad Request
         echo "Invalid data received.";
@@ -15,7 +18,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     exit();
 }
 
-// Set default session value if not already set
+// Set default session values if not already set
 if (!isset($_SESSION["menuToggle"])) {
     $_SESSION["menuToggle"] = 0;
+}
+if (!isset($_SESSION["loggedIn"])) {
+    $_SESSION["loggedIn"] = [
+        "access" => false,
+        "user" => null
+    ];
+}
+if (!isset($_SESSION["codeEntry"])) {
+    $_SESSION["codeEntry"] = [
+        "access" => false,
+        "platform" => null
+    ];
 }

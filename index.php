@@ -1,31 +1,39 @@
 <?php
-    include "Includes/dbConnect.php";
+include "Includes/dbConnect.php";
+include "Includes/sessions.php";
 
-    if (isset($_GET["code"])) {
-        $getCode = $_GET["code"];
-        $dbCode;
+if (isset($_GET["code"])) {
+    $getCode = $_GET["code"];
 
-        $sql = "SELECT * FROM entry";
-        $result = $conn->query($sql);
+    // Use prepared statements to prevent SQL injection
+    $stmt = $conn->prepare("SELECT `code`, `platform` FROM entry WHERE `code` = ?");
+    $stmt->bind_param("s", $getCode);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        if (mysqli_num_rows($result) > 0) {
-            // output data of each row
-            while($row = mysqli_fetch_assoc($result)) {
-                $dbCode = $row["code"];
-                echo $dbCode;
-            }
-        } else {
-            echo "0 results";
-        }
+    if ($row = $result->fetch_assoc()) {
+        $dbCode = $row["code"];
+        $dbPlatform = $row["platform"];
 
-        if ($getCode == $dbCode) {
-            header("Location: Pages/Startpagina");
-        } else {
-            header("Location: Pages/Login");
-        }
+        $_SESSION["codeEntry"] = [
+            "access" => true,
+            "platform" => $dbPlatform
+        ];
+        
+        header("Location: Pages/Startpagina");
     } else {
+        // No matching code found
+        echo "0 results";
+        // Optionally redirect to the login page
         header("Location: Pages/Login");
     }
 
-    
+    $stmt->close();
+    $conn->close();
+} else {
+    // No code provided in the GET request
+    echo "No code provided.";
+    // Optionally redirect to the login page
+    header("Location: Pages/Login");
+}
 ?>

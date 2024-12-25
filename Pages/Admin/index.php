@@ -1,6 +1,10 @@
 <?php
     include "../../Includes/sessions.php";
-    include "../../Includes/userAccess.php";
+    $loggedIn = $_SESSION["loggedIn"];
+
+    if ($loggedIn == false) {
+        header("Location: ../login");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,10 +24,10 @@
         ?>
         <div class="pageFormat">
             <div class="contentWrapper">
-                <h1 class="m-5"><cite>"Hello World!"</cite></h1>
+                <h1 class="m-5"><cite>"Het Commando Centrum"</cite></h1>
                 <div class="content">
                     <h3 class="font-bold px-3.5">
-                        Over mij
+                        Website Beheer
                     </h3>
                     <?php
                         include "../../Includes/dbConnect.php";

@@ -1,4 +1,19 @@
 <?php
+    $loggedIn = $_SESSION["loggedIn"];
+    $codeEntry = $_SESSION["codeEntry"];
+
+    $user;
+    $accountHref;
+
+    if ($loggedIn["access"] == true) {
+        $user = $loggedIn["user"];
+        $accountHref = "../Admin";
+    } else if ($codeEntry["access"] == true) {
+        $user = $codeEntry["platform"];
+        $accountHref = "../Login";
+    }
+
+
     $hidden = "hidden";
     $icon = "fa-navicon";
 
@@ -51,11 +66,11 @@
             </a>
         </div>
         <div class="menuDiv menuList hidden absolute bottom-0">
-            <a class="menuButton" href="../Login">
+            <a class="menuButton" href="'.$accountHref.'">
                 <div class="flex p-3">
                 <!-- <div style="display: flex; padding: 12px;"> -->
                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                    <p class="menuButtonText '.$hidden.'">Bezoeker</p>
+                    <p class="menuButtonText '.$hidden.'">'.$user.'</p>
                 </div>
             </a>
         </div>
