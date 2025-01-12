@@ -66,6 +66,15 @@
                         </div>
                         <div class="w-fit h-fit m-4">
                             <button onclick="presentBadge(this)" class="mx-auto block">
+                                <img src="../../Images/CatGifs/catshocked.gif" class="badge w-28 h-28 border-2 border-black mx-auto bg-slate-200">
+                                <input type="hidden" value="1">
+                            </button>
+                            <p class="badgeTag w-44 mt-2 text-center">
+                                Larry
+                            </p>
+                        </div>
+                        <div class="w-fit h-fit m-4">
+                            <button onclick="presentBadge(this)" class="mx-auto block">
                                 <!-- <img src="" class="badge w-28 h-28 border-2 border-black mx-auto bg-slate-200"> -->
                                 <div class="badge flex items-center w-28 h-28 border-2 border-black mx-auto bg-slate-200">
                                     <i class="fa fa-question text-6xl mx-auto" aria-hidden="true"></i>

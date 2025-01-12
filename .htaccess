@@ -1,0 +1,8 @@
+# Enable Rewrite Engine (if needed for custom URLs)
+RewriteEngine On
+
+# Custom 404 Error Page
+ErrorDocument 404 /Portfolio-Website-2.0/Pages/404/
+
+# Redirect for Testing (optional)
+Redirect 302 /test /Pages/404/index.php
