@@ -1,11 +1,13 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "Portfolio";
+include_once("loadEnv.php");
+
+$servername = getenv("DB_NAME");
+$username = getenv("DB_USER");
+$password = getenv("DB_PASS");
+$table = getenv("DB_TABLE");
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $table);
 
 // Check connection
 if (!$conn) {
